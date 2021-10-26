@@ -3,6 +3,9 @@ package com.model;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+/**
+ * This is a type of product that contains a ReentrantLock
+ */
 public class EnhancedProduct extends Product {
     private int soldQuantity;
     private final Lock mutex;
@@ -11,6 +14,10 @@ public class EnhancedProduct extends Product {
         return soldQuantity;
     }
 
+    /**
+     *
+     * @return a Lock that's specific to the EnhancedLock
+     */
     public Lock getMutex() {
         return mutex;
     }

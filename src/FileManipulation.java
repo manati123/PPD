@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class FileManip {
+public class FileManipulation {
     public static List<EnhancedProduct> getProducts() {
         Scanner reader;
         try {

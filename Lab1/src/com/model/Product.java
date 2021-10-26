@@ -1,5 +1,8 @@
 package com.model;
 
+/**
+ * The products in the supermarket
+ */
 public class Product {
     private final String name;
     private int quantity;

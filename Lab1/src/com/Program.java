@@ -15,6 +15,7 @@ public class Program {
         List<EnhancedProduct> products = FileManipulation.getProducts();
         Supermarket supermarket = new Supermarket(products);
         List<Bill> bills = Bill.getRandomBills(products, products.size()/5);
+        System.out.println(bills.size());
         int threadNumber = 100;
         int iterations = (int) Math.ceil((double)bills.size()/(double) threadNumber);
         List<Thread> threads = new ArrayList<>();

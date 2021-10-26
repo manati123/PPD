@@ -3,7 +3,7 @@ import java.util.List;
 
 public class Program {
     public static void main(String[] args) throws InterruptedException {
-        List<EnhancedProduct> products = FileManip.getProducts();
+        List<EnhancedProduct> products = FileManipulation.getProducts();
         Supermarket supermarket = new Supermarket(products);
         List<Bill> bills = Bill.getRandomBills(products, products.size()/5);
         int threadNumber = 100;

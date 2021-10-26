@@ -13,7 +13,7 @@ public class FileManipulation {
     public static List<EnhancedProduct> getProducts() {
         Scanner reader;
         try {
-            reader = new Scanner(new BufferedInputStream(new FileInputStream("utils/products.txt")));
+            reader = new Scanner(new BufferedInputStream(new FileInputStream("/Users/silviu/Documents/ubb/LFTC/FLCD/PPD/Lab1/src/com/service/products.txt")));
         } catch (FileNotFoundException e) {
             return new ArrayList<>();
         }

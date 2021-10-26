@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+/**
+ *
+ */
 public record Bill(List<Product> products) {
     public List<Product> getProducts() {
         return products;

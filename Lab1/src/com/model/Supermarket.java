@@ -9,6 +9,9 @@ import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
+/**
+ * The Supermarket
+ */
 public class Supermarket {
     private int money;
     private final List<EnhancedProduct> products;
@@ -16,6 +19,10 @@ public class Supermarket {
     private final ReadWriteLock everythingMutex;
     private final List<Bill> consumedBillList;
 
+    /**
+     *
+     * @param products the list of products in the market
+     */
     public Supermarket(List<EnhancedProduct> products) {
         this.products = products;
         this.money = 0;
@@ -24,6 +31,12 @@ public class Supermarket {
         this.consumedBillList = new ArrayList<>();
     }
 
+    /**
+     *
+     * @param bill
+     * It holds a readWriteLock over everything while the current bill is being parsed
+     * It gets each product on the bill, locks it, adds the total price of it (taking in consideration the quantity as well) to totalPrice, then unlocks it
+     */
     public void parseBill(Bill bill) {
         everythingMutex.readLock().lock();
         int totalPrice = 0;
@@ -42,6 +55,11 @@ public class Supermarket {
         everythingMutex.readLock().unlock();
     }
 
+    /**
+     *
+     * @return true if everything is ok, false otherwise
+     * Checks if the total money is equal to the sum of all the bills prices
+     */
     public boolean checkEverything() {
         everythingMutex.writeLock().lock();
         System.out.println("Checked so far " + consumedBillList.size() + " bills");
@@ -55,10 +73,6 @@ public class Supermarket {
                 totalPrice += product.getQuantity() * product.getPrice();
             }
         if (totalPrice != money) {
-
-
-
-
             everythingMutex.writeLock().unlock();
             return false;
         }

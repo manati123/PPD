@@ -1,0 +1,6 @@
+noRowsFirstMatrix = 3
+noColumnsFirstMatrix = 2
+noColumnsSecondMatrix = 2
+functionType = pool
+scanType = kth
+taskNumber = 3
